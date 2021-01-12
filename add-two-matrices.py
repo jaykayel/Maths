@@ -14,6 +14,7 @@ def menu():
     # 2. 3x3 Matrices             #
     # 3. 3x2 Matrices             #
     # 4. 2x3 Matrices             #
+    # 5. EXIT                     #  
     ###############################
         """)
     choice = int(input("Your choice: "))
@@ -27,6 +28,8 @@ def menu():
         threebytwo()
     elif choice == 4:
         twobythree()
+    elif choice == 5:
+        exit()
     else:
         menu()
 
@@ -50,8 +53,14 @@ def manuals():
     b
     c
     d
+    Enter second Matrix:
+    a
+    b
+    c
+    d
+
     
-    you will be asked for all numbers seperately
+    you will be asked for all numbers separately
     
     The output format will be:
     
@@ -129,26 +138,6 @@ def three():    # 3x3
 def threebytwo():   # 3x2
     print("""
     ###########################################
-    # You have chosen to add two 3x2 matrices #
-    ###########################################
-    \n""")
-
-    print('Enter your first Matrix')
-    x = []
-    for i in range(0, 3):
-        ele = [int(input()), int(input())]
-        x.append(ele)
-    print('First Matrix = ', x)
-    print('Enter your second Matrix')
-    y = []
-    for i in range(0, 3):
-        ele = [int(input()), int(input())]
-        y.append(ele)
-
-
-def twobythree():   # 2x3
-    print("""
-    ###########################################
     # You have chosen to add two 2x3 matrices #
     ###########################################
     \n""")
@@ -171,6 +160,36 @@ def twobythree():   # 2x3
     print(result[0])
     print(result[1])
     print("\n")
+    menu()
+
+
+def twobythree():   # 2x3
+    print("""
+    ###########################################
+    # You have chosen to add two 3x2 matrices #
+    ###########################################
+    \n""")
+
+    print('Enter your first Matrix')
+    x = []
+    for i in range(0, 3):
+        ele = [int(input()), int(input())]
+        x.append(ele)
+    print('First Matrix = ', x)
+
+    print('Enter your second Matrix')
+    y = []
+    for i in range(0, 3):
+        ele = [int(input()), int(input())]
+        y.append(ele)
+    print('Second Matrix = ', y)
+
+    result = [[x[i][j] + y[i][j] for j in range(len(x[0]))] for i in range(len(x))]
+
+    print('Your result')
+    print(result[0])
+    print(result[1])
+    print(result[2])
     menu()
 
 
